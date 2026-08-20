@@ -1,0 +1,44 @@
+name: One-time project import
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.repository == 'Aussice/paper-world-weather'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and verify source
+        run: |
+          curl -fL --retry 20 \
+            https://paper-world-weather.aussice.chatgpt.site/.transfer/source.part-00 \
+            -o /tmp/source.part-00
+          curl -fL --retry 20 \
+            https://paper-world-weather.aussice.chatgpt.site/.transfer/source.part-01 \
+            -o /tmp/source.part-01
+
+          echo "8af83b99a0362d512aefc123d0a09b6f58f77f2b6fa03b5cf35a5537b1572def  /tmp/source.part-00" | sha256sum -c
+          echo "322aa6df6292944830c9b3a3403a781548a7247a70c32307f398c633a9a58e86  /tmp/source.part-01" | sha256sum -c
+
+          cat /tmp/source.part-00 /tmp/source.part-01 > /tmp/source.tar.gz
+          echo "1c25601db219ff9e0057403543b0f9e44d7bd2768070ee7602237e3ddfa2d4ce  /tmp/source.tar.gz" | sha256sum -c
+
+      - name: Import complete project
+        run: |
+          tar -xzf /tmp/source.tar.gz -C .
+          rm .github/workflows/import-source.yml
+          rmdir .github/workflows .github || true
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Import Paper World Weather"
+          git push
