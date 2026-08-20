@@ -11,60 +11,22 @@
 
 ## Interface Preview
 
-### Main experiment index
-
-The homepage brings six interactive algorithm laboratories together in one visual index.
-
-<p align="center">
-  <img src="docs/screenshots/homepage.png" alt="Algorithm Visualization Laboratory homepage" width="900">
-</p>
-
-### Evolutionary game theory
-
-Explore cooperation, defection, genetic strategies, selection, mutation, and population dynamics through a repeated Prisoner's Dilemma.
-
-<p align="center">
-  <img src="docs/screenshots/evolutionary-game.png" alt="Evolutionary game theory experiment interface" width="900">
-</p>
-
-### Multi-robot coordination
-
-Observe task assignment, path planning, reservations, and deadlock resolution in a dynamic warehouse.
-
-<p align="center">
-  <img src="docs/screenshots/multi-robot.png" alt="Multi-robot coordination experiment interface" width="900">
-</p>
-
-### Traveling salesman problem
-
-Compare genetic search, simulated annealing, and 2-opt local improvement as routes gradually converge.
-
-<p align="center">
-  <img src="docs/screenshots/tsp.png" alt="Traveling salesman problem experiment interface" width="900">
-</p>
+The laboratory presents algorithms as interactive experiments. Each page combines controls, a live visualization, current metrics, and an explainer section so that the result and the calculation process can be read together.
 
 ### Neural network classification
 
-Follow forward propagation, loss calculation, gradient updates, and decision-boundary changes.
+Adjust hidden neurons, learning rate, training speed, and activation function. The decision-boundary field, training metrics, and network architecture update as the model learns.
 
 <p align="center">
   <img src="docs/screenshots/neural-network.png" alt="Neural network classification experiment interface" width="900">
 </p>
 
-### Q-learning maze
+### Traveling salesman problem
 
-Watch an agent balance exploration and exploitation while updating its state-action values.
-
-<p align="center">
-  <img src="docs/screenshots/q-learning.png" alt="Q-learning maze experiment interface" width="900">
-</p>
-
-### Boids swarm intelligence
-
-See how separation, alignment, and cohesion create collective behavior from local rules.
+Compare genetic search, 2-opt, and simulated annealing while watching candidate routes, distance metrics, and convergence information change during the search.
 
 <p align="center">
-  <img src="docs/screenshots/boids.png" alt="Boids swarm intelligence experiment interface" width="900">
+  <img src="docs/screenshots/tsp.png" alt="Traveling salesman problem experiment interface" width="900">
 </p>
 
 ## Experiments
@@ -80,14 +42,11 @@ See how separation, alignment, and cohesion create collective behavior from loca
 
 ## Learning through experiments
 
-Each laboratory exposes more than the final result:
-
-- Parameters can be changed interactively.
-- Simulations can be run step by step.
-- Intermediate calculations are visible.
-- Algorithm decisions can be inspected.
-- Different strategies can be compared on the same problem.
-- The interface supports both Chinese and English.
+- Change parameters and see their effects immediately.
+- Run simulations step by step.
+- Inspect intermediate calculations and algorithm decisions.
+- Compare different strategies on the same problem.
+- Switch between Chinese and English when entering the laboratory.
 
 ## Technology
 
@@ -128,13 +87,8 @@ app/
 
 docs/
 └── screenshots/
-    ├── homepage.png
-    ├── evolutionary-game.png
-    ├── multi-robot.png
-    ├── tsp.png
     ├── neural-network.png
-    ├── q-learning.png
-    └── boids.png
+    └── tsp.png
 ```
 
 ## Live site
