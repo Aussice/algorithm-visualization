@@ -1,76 +1,103 @@
 # Algorithm Visualization Laboratory
 
 <p align="center">
-  <strong>See algorithms. See thinking.</strong><br/>
+  <strong>See algorithms. See thinking.</strong><br>
   Interactive experiments for understanding how algorithms make decisions.
 </p>
 
 <p align="center">
-  <a href="https://evolutionary-game-lab.aussice.chatgpt.site">Live laboratory</a> ·
-  <a href="#experiments">Explore experiments</a> ·
-  <a href="#run-locally">Run locally</a>
+  <a href="https://evolutionary-game-lab.aussice.chatgpt.site">Open Live Laboratory</a>
 </p>
 
-## Overview
+## Interface Preview
 
-This project turns algorithmic ideas into interactive experiments. Instead of showing only the final answer, each laboratory exposes parameters, intermediate states, decisions, and the process that produces the result.
+### Main experiment index
 
-```mermaid
-flowchart LR
-    A[Change parameters] --> B[Run one step]
-    B --> C[Inspect state update]
-    C --> D[Compare outcomes]
-    D --> A
-```
+The homepage brings six interactive algorithm laboratories together in one visual index.
+
+<p align="center">
+  <img src="docs/screenshots/homepage.png" alt="Algorithm Visualization Laboratory homepage" width="900">
+</p>
+
+### Evolutionary game theory
+
+Explore cooperation, defection, genetic strategies, selection, mutation, and population dynamics through a repeated Prisoner's Dilemma.
+
+<p align="center">
+  <img src="docs/screenshots/evolutionary-game.png" alt="Evolutionary game theory experiment interface" width="900">
+</p>
+
+### Multi-robot coordination
+
+Observe task assignment, path planning, reservations, and deadlock resolution in a dynamic warehouse.
+
+<p align="center">
+  <img src="docs/screenshots/multi-robot.png" alt="Multi-robot coordination experiment interface" width="900">
+</p>
+
+### Traveling salesman problem
+
+Compare genetic search, simulated annealing, and 2-opt local improvement as routes gradually converge.
+
+<p align="center">
+  <img src="docs/screenshots/tsp.png" alt="Traveling salesman problem experiment interface" width="900">
+</p>
+
+### Neural network classification
+
+Follow forward propagation, loss calculation, gradient updates, and decision-boundary changes.
+
+<p align="center">
+  <img src="docs/screenshots/neural-network.png" alt="Neural network classification experiment interface" width="900">
+</p>
+
+### Q-learning maze
+
+Watch an agent balance exploration and exploitation while updating its state-action values.
+
+<p align="center">
+  <img src="docs/screenshots/q-learning.png" alt="Q-learning maze experiment interface" width="900">
+</p>
+
+### Boids swarm intelligence
+
+See how separation, alignment, and cohesion create collective behavior from local rules.
+
+<p align="center">
+  <img src="docs/screenshots/boids.png" alt="Boids swarm intelligence experiment interface" width="900">
+</p>
 
 ## Experiments
 
-| Laboratory | Main question | What is visualized |
+| Experiment | Main question | Visual focus |
 |---|---|---|
 | Evolutionary game theory | How can cooperation evolve? | Strategies, payoffs, mutation, selection, and population size |
-| Multi-robot coordination | How can robots move without gridlock? | Task assignment, paths, reservations, and deadlock resolution |
+| Multi-robot coordination | How can robots move without gridlock? | Task assignment, routes, reservations, and deadlock resolution |
 | Traveling salesman problem | How does a route improve? | Candidate tours, distance changes, crossover, mutation, and local search |
 | Neural network classification | How does a model learn a boundary? | Forward propagation, loss, gradients, and decision regions |
 | Q-learning maze | How does an agent learn by trial and error? | Rewards, Q-values, exploration, exploitation, and policy formation |
 | Boids swarm intelligence | How does order emerge from local rules? | Separation, alignment, cohesion, neighbors, and obstacle avoidance |
 
-## Algorithm stories
+## Learning through experiments
 
-Each experiment follows the same readable loop, while the computation stays faithful to the algorithm being demonstrated.
+Each laboratory exposes more than the final result:
 
-```mermaid
-flowchart TB
-    subgraph Evolution[Population dynamics]
-      E1[Pair strategies] --> E2[Compute payoffs] --> E3[Select and reproduce] --> E4[Mutate] --> E1
-    end
-    subgraph Coordination[Multi-agent coordination]
-      R1[Assign task] --> R2[Plan path] --> R3[Reserve next cell] --> R4[Resolve conflict] --> R2
-    end
-    subgraph Search[Route optimization]
-      T1[Generate candidate] --> T2[Measure distance] --> T3[Accept or replace] --> T4[Improve locally] --> T1
-    end
-```
-
-## What you can do
-
-- Change parameters and see their effects immediately.
-- Run simulations step by step instead of waiting for a black-box result.
-- Inspect formulas, intermediate calculations, and decision rules.
-- Compare multiple strategies on the same problem.
-- Choose Chinese or English when entering the laboratory.
+- Parameters can be changed interactively.
+- Simulations can be run step by step.
+- Intermediate calculations are visible.
+- Algorithm decisions can be inspected.
+- Different strategies can be compared on the same problem.
+- The interface supports both Chinese and English.
 
 ## Technology
 
-```mermaid
-flowchart LR
-    UI[React + TypeScript UI] --> SIM[Browser simulations]
-    SIM --> VIZ[SVG and Canvas visualizations]
-    UI --> I18N[Chinese / English language layer]
-    UI --> BUILD[Vinext build]
-    BUILD --> DEPLOY[Cloudflare Sites]
-```
-
-The project uses React, TypeScript, Vinext, and CSS. Simulations run directly in the browser, with no backend required for the interactive demonstrations.
+- React
+- TypeScript
+- Vinext
+- CSS
+- SVG and Canvas visualizations
+- Browser-based simulation
+- Cloudflare Sites deployment
 
 ## Run locally
 
@@ -80,8 +107,6 @@ Requirements: Node.js `>=22.13.0`.
 npm install
 npm run dev
 ```
-
-Then open the local development URL shown in the terminal.
 
 To create a production build:
 
@@ -93,18 +118,28 @@ npm run build
 
 ```text
 app/
-├── algorithm-hub.tsx       # Main experiment index
-├── evolutionary-game/      # Evolutionary game laboratory
-├── robot-lab.tsx           # Multi-robot coordination
-├── tsp-lab.tsx             # Traveling salesman problem
-├── neural-lab.tsx          # Neural network classification
-├── q-learning-lab.tsx      # Q-learning maze
-└── boids-lab.tsx           # Swarm intelligence
+├── algorithm-hub.tsx
+├── simulation-lab.tsx
+├── robot-lab.tsx
+├── tsp-lab.tsx
+├── neural-lab.tsx
+├── q-learning-lab.tsx
+└── boids-lab.tsx
+
+docs/
+└── screenshots/
+    ├── homepage.png
+    ├── evolutionary-game.png
+    ├── multi-robot.png
+    ├── tsp.png
+    ├── neural-network.png
+    ├── q-learning.png
+    └── boids.png
 ```
 
 ## Live site
 
-[Open Algorithm Visualization Laboratory](https://evolutionary-game-lab.aussice.chatgpt.site)
+[Algorithm Visualization Laboratory](https://evolutionary-game-lab.aussice.chatgpt.site)
 
 ## License
 
